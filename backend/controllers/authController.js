@@ -7,7 +7,7 @@ const User = require('../models/userModel');
 exports.googleAuth = async (req, res, next) => {
     const code = req.query.code;
     try {
-        const googleRes = await oauth2Client.getToken(code);
+        const googleRes = await oauth2Client.getToken({code,redirect_uri: process.env.GOOGLE_REDIRECT_URI,});
         oauth2Client.setCredentials(googleRes.tokens);
         const userRes = await axios.get(
             `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${googleRes.tokens.access_token}`
