@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
@@ -21,10 +21,12 @@ const Dashboard = () => {
         <>
             <h1>Welcome {userInfo?.name}</h1>
             <h3>{userInfo?.email}</h3>
-            <img src={userInfo?.image} alt={userInfo?.name}/>
+            <div style={{ display:'flex', alignItems:'center' , gap:'20px',  }}>
+            <img src={userInfo?.image} alt={userInfo?.name} referrerPolicy="no-referrer" style={{ width: '100px', height: '100px' , borderRadius: '90%' }} />          
             <button onClick={handleLogout}
             >Logout
             </button>
+             </div>
         </>
     )
 }
