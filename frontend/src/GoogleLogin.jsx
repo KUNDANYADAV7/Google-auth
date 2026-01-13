@@ -28,6 +28,7 @@ const GoolgeLogin = (props) => {
 		onSuccess: responseGoogle,
 		onError: responseGoogle,
 		flow: "auth-code",
+		redirect_uri: "https://google-auth-uu59.onrender.com/login"
 		// ux_mode: "redirect",
 	});
 
